@@ -6,15 +6,15 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import ru.aiefu.timeandwindct.TimeAndWindCT;
 
-public record SetupTimePayload() implements CustomPacketPayload {
-    public static final CustomPacketPayload.Type<SetupTimePayload> ID = new CustomPacketPayload.Type<>(
+public record SetupTimeLocalPayload() implements CustomPacketPayload {
+    public static final CustomPacketPayload.Type<SetupTimeLocalPayload> ID = new CustomPacketPayload.Type<>(
         ResourceLocation.fromNamespaceAndPath(TimeAndWindCT.MOD_ID, "setup_time")
     );
 
-    public static final StreamCodec<Object, SetupTimePayload> CODEC = StreamCodec.unit(new SetupTimePayload());
+    public static final StreamCodec<Object, SetupTimeLocalPayload> CODEC = StreamCodec.unit(new SetupTimeLocalPayload());
 
     @Override
-    public @NotNull Type<SetupTimePayload> type() {
+    public @NotNull Type<SetupTimeLocalPayload> type() {
         return ID;
     }
 }

@@ -54,7 +54,7 @@ public class TimeAndWindCT implements ModInitializer {
     private void registerPayloads() {
         PayloadTypeRegistry.playS2C().register(CfgDebugInfoPayload.ID, CfgDebugInfoPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(NightSkipInfoPayload.ID, NightSkipInfoPayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(SetupTimePayload.ID, SetupTimePayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(SetupTimeLocalPayload.ID, SetupTimeLocalPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncConfigPayload.ID, SyncConfigPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(WorldIdClipboardPayload.ID, WorldIdClipboardPayload.CODEC);
     }
@@ -103,7 +103,7 @@ public class TimeAndWindCT implements ModInitializer {
 
             LOGGER.info("[Time & Wind] Sending config to player");
         } else {
-            ServerPlayNetworking.send(player, new SetupTimePayload());
+            ServerPlayNetworking.send(player, new SetupTimeLocalPayload());
         }
     }
 }
